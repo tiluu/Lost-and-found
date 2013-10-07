@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<header>
+	<h2> 
+	{{title}} | 
+	<a href="/">Home</a>
+	</h2>
+</header>
+<div class='content-lost'>
+	{% for item in item_posts %}
+	<a href="/item">
+		<div class='items'> 
+			{{item.item}}
+		</div>
+	</a>
+	{% endfor %}
+	
+</div>
+{% endblock %}

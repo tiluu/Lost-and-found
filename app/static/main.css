@@ -1,0 +1,44 @@
+* {
+	margin : 0;
+	padding : 0;
+}
+html, body {
+	height 	: 100%;
+}
+
+#wrap {
+	min-height 	: 100%;
+}
+
+#main {
+	overflow 	:auto;
+	padding-bottom 	: 180px;
+	}  /* must be same height as the footer */
+
+#footer {
+	position 	: relative;
+	margin-top 	: -180px; /* negative value of footer height */
+	height 		: 180px;
+	clear 		:both;
+} 
+
+/*LANDING*/
+
+/*NAVIGATION*/
+header {
+	height : 50px;
+	border-bottom: solid 1px black;
+}
+
+/*ITEM BOX*/
+
+.items {
+	height  : 75px;
+	width 	: 500px;
+	border 	: solid 1px black;
+	margin  : 50px auto;
+	
+}
+.content-lost {
+	
+}
