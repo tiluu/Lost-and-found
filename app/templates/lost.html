@@ -1,12 +1,16 @@
 {% extends "layout.html" %}
+
+
 {% block content %}
 <div class='content-lost'>
 	{% for item in item_posts %}
-	<a href="/item">
+	<!--adds url parameter for each item-->
+	<a href={{url_for('item', id=item.id)}}> 
 		<div class='items'> 
-			#:{{item.id}} - {{item.name_item}} <br>
-			{{item.description}} <br>
-			{{item.date}} 
+			#:{{item.id}} - {{item.item_status}} : {{item.name_item}} <br>
+			{{ item.description }} <br>
+			<!--{{ moment(item.date).format('LL') }} -->
+			{{item.date}}
 		</div>
 	</a>
 	{% endfor %}

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="" method="post" name="login">
+	{{form.hidden_tag()}}
+	
+	<p>Item : {{form.item_name}}</p>
+	<p>Description : {{form.descrip(size = 30, maxlength = 150) }}</p>
+	<p>Location : {{form.location}}</p>
+	<p>Item Status : {{form.item_status}}</p>
+
+	<p><input type="submit" value="Submit"></p>
+	
+</form>
+{% endblock %}

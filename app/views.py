@@ -1,5 +1,8 @@
 from app import app, db, models
-from flask import render_template
+from flask import render_template, redirect
+from forms import *
+from models import *
+import datetime
 import re
 import unidecode 
 
@@ -16,7 +19,7 @@ def landing():
 @app.route('/lost')
 def lost():
 	title = 'Lost'
-	item_post = models.Items.query.all()
+	item_post = models.Items.query.filter_by(item_status='lost')
 	return render_template("lost.html", 
 							item_posts = item_post,
 							title = title)
@@ -24,11 +27,7 @@ def lost():
 @app.route('/found')
 def found():
 	title = 'Found'
-	item_post = [
-			{'item': 'test1'},
-			{'item': 'test2'},
-			{'item': 'test3'}
-	]
+	item_post = models.Items.query.filter_by(item_status='found')
 	return render_template("lost.html", 
 							item_posts = item_post,
 							title = title)
@@ -36,3 +35,29 @@ def found():
 @app.route('/item')
 def item():
 	return render_template("items.html")
+
+@app.route('/add', methods = ['GET', 'POST'])
+def add():
+	title = "Post Item"
+	form = PostItem()
+	if form.validate_on_submit():
+		post = Items(name_item = form.item_name.data,description=form.descrip.data, 
+					date=datetime.datetime.utcnow(), item_status=form.item_status.data,
+					area=form.location.data)
+		db.session.add(post)
+		db.session.commit()
+
+		return redirect(form.item_status.data)
+
+	return render_template("add.html", 
+						title = title, 
+						form = form)
+
+
+
+
+
+
+
+
+

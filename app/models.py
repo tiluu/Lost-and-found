@@ -19,6 +19,8 @@ class Items(db.Model):
 	name_item = db.Column(db.String(100), index = True)
 	description = db.Column(db.String(500))
 	date = db.Column(db.DateTime)
+	item_status = db.Column(db.String(10), index = True)
+	area = db.Column(db.String(100), index = True)
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 	def __repr__(self):
