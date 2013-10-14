@@ -3,8 +3,16 @@
 	padding : 0;
 	text-decoration: none;
 }
+textarea {
+	resize :none;
+}
+
+a:visited {
+	color: black
+}
 html, body {
 	height 	: 100%;
+	background-color : #F8F8F8;
 }
 
 #wrap {
@@ -24,6 +32,18 @@ html, body {
 } 
 
 /*LANDING*/
+#welcome {
+	margin: auto;
+  	position: absolute;
+  	top: 0; left: 0; bottom: 0; right: 0;
+	width : 284px;
+	height : 37px;
+	overflow: auto;
+}
+
+#welcome a {
+	color: purple;
+}
 
 /*NAVIGATION*/
 header {
@@ -37,9 +57,54 @@ header {
 	height  : 75px;
 	width 	: 500px;
 	border 	: solid 1px black;
-	margin  : 50px auto;
+	margin  : 50px auto;	
+}
+
+.items:hover {
+	background-color : gray; 
+}
+/*ITEMS PAGE*/
+
+#items_page {
+	text-align : center; 
+}
+
+.item_info {
+	margin : 10px 0;
+}
+/*ITEMS PAGE*/
+#add_item {
+	width : 400px;
+	margin : 50px auto;
+	font-size : 24px; 
+}
+
+#add_item input {
+	height : 25px;
+	margin : 10px 0;
 	
 }
-.content-lost {
-	
+/* ADD PAGE*/
+label {
+	display : block;
 }
+input#descrip {
+	height: 100px;
+}
+
+input[type='submit'] {
+	float : right;
+}
+
+#info_text {
+	height : 100px;
+	width : 367px; 
+	margin : 10px 0; 
+}
+
+
+
+
+
+
+

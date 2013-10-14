@@ -1,11 +1,15 @@
 {% extends "layout.html" %}
+{% block header %}
+	{% include "header.html" %}
+{% endblock header %}
+
 {% block content %}
-<form action="" method="post" name="login">
+<form id='add_item' action="" method="post" name="login">
 	{{form.hidden_tag()}}
 	
-	<p>Item : {{form.item_name}}</p>
-	<p>Description : {{form.descrip(size = 30, maxlength = 150) }}</p>
-	<p>Location : {{form.location}}</p>
+	<p><label for="item">Item : </label> {{form.item_name(size = 70)}}</p>
+	<p><label for="area">Location : </label>{{form.location(size = 70)}}</p>
+	<p><label for="info">Description : </label>{{form.info_text(size=70)}}</p>
 	<p>Item Status : {{form.item_status}}</p>
 
 	<p><input type="submit" value="Submit"></p>

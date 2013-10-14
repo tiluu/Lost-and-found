@@ -7,13 +7,8 @@
 	</head>
 	<body>
 	{% if title %}
-		<header>
-			<h2> 
-				{{title}} | 
-				<a href="/">Home</a> | 
-				<a href="/add">Add</a>
-			</h2>
-		</header>
+		{% block header %}
+		{% endblock %}
 	{% endif %}
 		<div id='wrap'>
 			{% block content %}

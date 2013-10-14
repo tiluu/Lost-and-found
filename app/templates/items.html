@@ -1,4 +1,18 @@
 {% extends "layout.html"%}
+{% block header %}
+	{% include "header.html" %}
+{% endblock header %}
+
 {% block content %}
-	
+	{% for item in item_posts %}
+	<!--adds url parameter for each item-->
+	<div id='items_page'> 
+		<h1>{{item.item_status}} : {{item.name_item}}</h1>
+		<div class='item_info'> {{ item.description }} </div>
+		
+		<!--{{ moment(item.date).format('LL') }} -->
+		#{{item.id}} | By: {{item.user_id}} | {{item.date}}
+	</div>
+
+	{% endfor %}
 {% endblock %}

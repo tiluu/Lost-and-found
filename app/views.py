@@ -1,5 +1,5 @@
 from app import app, db, models
-from flask import render_template, redirect
+from flask import render_template, redirect, request
 from forms import *
 from models import *
 import datetime
@@ -34,7 +34,12 @@ def found():
 
 @app.route('/item')
 def item():
-	return render_template("items.html")
+	item_param = request.args.get('id','item_id')
+	title = 'Item #' + item_param
+	item_post = models.Items.query.filter_by(id=item_param) 
+	return render_template("items.html", 
+							item_posts =item_post,
+							title = title)
 
 @app.route('/add', methods = ['GET', 'POST'])
 def add():
